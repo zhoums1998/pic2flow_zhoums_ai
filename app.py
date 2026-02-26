@@ -27,7 +27,7 @@ if uploaded_file:
         else:
             try:
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel('gemini-1.5-flash-latest')
                 
                 with st.spinner("AI 正在解析逻辑..."):
                     prompt = "识别图中流程图，严格输出 Mermaid 代码。包含 subgraph 和判断分支。只输出代码块，不要文字解释。"

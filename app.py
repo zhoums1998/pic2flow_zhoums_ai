@@ -38,6 +38,13 @@ if uploaded_file:
                     
                     st.success("解析成功！")
                     st.code(code, language="mermaid")
-                    st.info("☝️ 复制上方代码，前往 app.diagrams.net 插入即可编辑。")
+                 st.success("解析成功！")
+                    st.code(code, language="mermaid")
+                    
+                    # --- 新增：一键跳转按钮 ---
+                    st.info("☝️ 复制上方代码后，点击下方按钮前往绘图：")
+                    st.link_button("🚀 前往 Draw.io (Diagrams.net)", "https://app.diagrams.net/")
+                    # -----------------------
+                    
             except Exception as e:
                 st.error(f"解析出错：{e}")

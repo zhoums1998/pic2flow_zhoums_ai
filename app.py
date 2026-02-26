@@ -33,18 +33,15 @@ if uploaded_file:
                     prompt = "识别图中流程图，严格输出 Mermaid 代码。包含 subgraph 和判断分支。只输出代码块，不要文字解释。"
                     response = model.generate_content([prompt, img])
                     
-                    # 提取内容
+                    # 提取内容并清理标签
                     code = response.text.replace("```mermaid", "").replace("```", "").strip()
                     
                     st.success("解析成功！")
                     st.code(code, language="mermaid")
-                 st.success("解析成功！")
-                    st.code(code, language="mermaid")
                     
-                    # --- 新增：一键跳转按钮 ---
+                    # 添加跳转按钮
                     st.info("☝️ 复制上方代码后，点击下方按钮前往绘图：")
                     st.link_button("🚀 前往 Draw.io (Diagrams.net)", "https://app.diagrams.net/")
-                    # -----------------------
                     
             except Exception as e:
                 st.error(f"解析出错：{e}")
